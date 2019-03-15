@@ -1,0 +1,10 @@
+<div style="display: inline-block;"> 
+  <h3>NewAuthor</h3>
+  <form (submit)="onSubmit()">
+    <p> {{ new_author.name | json }} </p>
+    <label for="name">TITLE: <input type="text" [(ngModel)]="new_author.name" name="name"></label>
+    <input type="submit" value="submit"><button [routerLink]="['/']">cancel</button>
+  </form>
+  {{message}}
+</div><br>
+  

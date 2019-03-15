@@ -1,0 +1,9 @@
+<main>
+  <h4>Edit an Author yo!</h4>
+  <form (submit)="editAuthor()">
+    <input type="text" name="name" [(ngModel)]='_author.name'>
+    <input type="submit" value="Edit">
+    <button [routerLink]="['home']">Cancel</button>
+  </form>
+  <p>{{_errors}}</p>
+</main>

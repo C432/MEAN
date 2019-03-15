@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ninja Class</title>
+</head>
+<body>
+    <script>
+    function Ninja(name) {
+            const self = this;
+            const speed = 3;
+            const strength = 3;
+            this.name = name;
+            this.health = 100;
+            this.sayName = function () {
+                console.log("My ninja name is " + this.name + "!")
+            }
+            this.showStats = function () {
+                console.log("Name:" + this.name + ", Health:" + this.health + ", Strength:" + strength + ", Speed:" + speed);
+            }
+            this.drinkSake = function () {
+                this.health += 10
+                console.log("Health is now " + this.health + " after drinking ninja sake!");
+            }
+            this.punch = function (opponent) {
+                this.health -= strength * 5;
+                damage = strength * 5;
+                console.log(this.name + " was punched by " + opponent.name + " and damage was " + damage + "!");
+            }
+            this.kick = function (opponent) {
+                this.health -= strength * 15;
+                damage = strength * 15;
+                console.log(this.name + " was kicked by " + opponent.name + " and damage was " + damage + "!");
+            }
+        }
+
+        class Sensei extends Ninja {
+            constructor(name) {
+                super();
+                const speed = 10;
+                const strength = 10;
+                this.wisdom = 10;
+                this.health = 200;
+                this.name = name;
+            }
+            speakWisdom() {
+                this.drinkSake();
+                console.log(`${this.name} says, "Only the dragon warrior can pass this test..."`);
+            }
+        }
+        const sensei1 = new Sensei("Oogway")
+        const ninja1 = new Ninja("Haru");
+        const ninja2 = new Ninja("Chuck");
+        ninja1.sayName();
+        ninja2.sayName();
+        ninja1.showStats();
+        ninja2.showStats();
+        ninja1.drinkSake();
+        ninja2.drinkSake();
+        ninja2.punch(ninja1);
+        ninja1.kick(ninja2);
+        sensei1.speakWisdom();
+        sensei1.showStats();
+    </script>
+</body>
+</html>

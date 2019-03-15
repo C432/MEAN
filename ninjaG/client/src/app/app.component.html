@@ -1,0 +1,21 @@
+<h1>Ninja Gold!!!!</h1>
+<label>You have {{goldCount}}
+  <a href="/reset">Reset</a>
+  <form action="/storeScore" method="POST">
+    <input type="text" name="name">
+    <input type="number" name="score" value="<%= context.gold %>" readonly>
+    <input type="submit">
+  </form>
+
+
+<button [routerLink]="['/cave']">Cave</button>
+<button [routerLink]="['/house']">House</button>
+<button [routerLink]="['/farm']">Farm</button>
+<button [routerLink]="['/casino']">Casino</button>
+<button [routerLink]="['/scores']">Scores</button>
+
+
+
+
+
+<router-outlet></router-outlet>

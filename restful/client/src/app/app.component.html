@@ -1,0 +1,33 @@
+
+  <h1>
+    Restful Tasks API
+  </h1>
+<form (submit)="createTask()">
+  <!-- use the json pipe to see how newTask changes in real time -->
+  <!-- <p> {{ newTask | json }} </p> -->
+  <input type="text" name="newTask.title" [(ngModel)]="newTask.title" />
+  <input type="text" name="newTask.description" [(ngModel)]="newTask.description" />
+  <input type="submit" value="Create Task" />
+</form>
+
+<h1>Tasks</h1>
+  <button (click)='getTasksFromService()'>Show/Hide Info!</button>
+  <!-- <p *ngIf='showInfo'>{{oneTask.title}}{{oneTask.description}}</p> -->
+
+
+ <div *ngFor="let task of allTasks">
+   <div>{{task?.title}}{{task?.description}}
+  <button (click)= 'getTaskById(task?._id)'>Get/Hide Info!</button>
+  <button (click)= 'deleteTask(task?._id)'>Delete Task!</button>
+</div>
+
+ <div>
+  <form (submit)="editTask(task?._id)">
+
+    <input type="text" name="title" value="{{oneTask?.title}}" [(ngModel)]="oldTask.title" />
+    <input type="text" name="description" value="{{oneTask?.description}}" [(ngModel)]="oldTask.description" />
+    <input type="submit" value="Edit Task">
+  </form>
+  </div>
+</div>
+

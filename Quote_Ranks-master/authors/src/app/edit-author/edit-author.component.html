@@ -1,0 +1,12 @@
+<p>Edit this author:</p>
+<div class="container alert-primary">
+  <form class="form-group">
+      <label class="form-label" for="name">Name: </label>
+      <input class="form-control col-xs-8" id="name" name="name" type="text" [(ngModel)]="name">  
+      <div class="btn-group pull-right btn-group-justified" role="group">
+          <button type="button" class="btn btn-primary" [routerLink]="['/home']">Cancel</button>
+          <button type="button" class="btn btn-success" (click)="putAuthor()">Submit</button>
+      </div>
+  </form>
+</div>
+<div *ngIf="errors" class="text-danger"><p *ngFor="let error of errors">{{error}}</p></div>

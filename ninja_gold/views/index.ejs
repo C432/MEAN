@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        div{
+            border: 1px solid black;
+        }
+        .log {
+            overflow: scroll;
+            height: 100px;
+        }
+        .green {
+            color: green;
+        }
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ninja Gold!!!!</h1>
+    <label>You have <%= context.gold %> gold!</label>
+    <a href="/reset">Reset</a>
+    <form action="/storeScore" method="POST">
+        <input type="text" name="name">
+        <input type="number" name="score" value="<%= context.gold %>" readonly>
+        <input type="submit">
+    </form>
+ 
+    <div class="farm">
+        <h3>Farm</h3>
+        <p>10-20 gold</p>
+        <form action="loot" method="post">
+            <input type="hidden" name="location" value="farm">
+            <button type="submit" name='submit'>Submit</button>
+        </form>
+    </div>
+    <div class="house">
+        <h3>House</h3>
+        <p>2-5 gold</p>
+        <form action="loot" method="post">
+            <input type="hidden" name="location" value="house">
+            <button type="submit" name='submit'>Submit</button>
+        </form>
+    </div>
+    <div class="cave">
+        <h3>Cave</h3>
+        <p>5-10 gold</p>
+        <form action="loot" method="post">
+            <input type="hidden" name="location" value="cave">
+            <button type="submit" name='submit'>Submit</button>
+        </form>
+    </div>
+    <div class="casino">
+        <h3>Casino</h3>
+        <p>Risk 0-50 gold</p>
+        <form action="loot" method="post">
+            <input type="hidden" name="location" value="casino">
+            <button type="submit" name='submit'>Submit</button>
+        </form>
+    </div>
+    <div class="log">
+        <% for (var x in context.log) {%>
+            <%- context.log[x].log %>
+        <% } %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<body>
+
+    <div class="container">
+        <h2>What would you like the new name to be?</h2>
+        <form action="/jaguar/edit/<%=data[0]._id%>" method="POST">
+            <label for="newName">New Name:
+                <input type="text" name="newName">
+            </label>
+            <input type="submit" value="Rename">
+        </form>
+    </div>
+</body>

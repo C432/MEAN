@@ -1,0 +1,9 @@
+<main>
+  <h4>Make an Author yo!</h4>
+<form (submit)="makeAuthor()">
+  <input type="text" name="name" [(ngModel)]='_author.name'>
+  <input type="submit" value="Create">
+  <button [routerLink] = "['home']">Cancel</button>
+</form>
+<p *ngIf='errors'>{{errors}}</p>
+</main>

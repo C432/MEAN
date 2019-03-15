@@ -1,0 +1,10 @@
+<div style="text-align: center;">
+    <a [routerLink] = "['/']" style="color:red">Home</a><br>  
+    <h3 *ngIf="author">Provide a quote by {{author.name}} </h3>
+    <form (submit) = "submitQuote()">
+        <label for="quote">Quote: <input type="text" [(ngModel)]="quote.quote" name="quote"></label>
+        <input type="submit" value="submit"><button [routerLink]="['/quotes/'+author._id]">cancel</button>
+    </form>  
+    {{message}}
+</div>
+  

@@ -1,0 +1,28 @@
+<h1>
+  Welcome to the Cake Show!
+</h1>
+<form (submit)="createCake()">
+  <!-- use the json pipe to see how newTask changes in real time -->
+  <!-- <p> {{ newTask | json }} </p> -->
+  <input type="text" name="newCake.name" [(ngModel)]="newCake.name" />
+  <input type="text" name="newCake.url" [(ngModel)]="newCake.url" />
+  <input type="submit" value="Create Cake" />
+</form>
+
+
+
+<h1>Cakes</h1>
+<button (click)='getCakesFromService()'>Show Info!</button>
+<!-- <p *ngIf='showInfo'>{{oneTask.title}}{{oneTask.description}}</p> -->
+<form (submit)='rateCakeById()'>
+  <input type="text" name="newCake.rating" [(ngModel)]="newCake.rating" />
+  <input type="text" name="newCake.comments" [(ngModel)]="newCake.comments" />
+</form>
+
+<div *ngFor="let cake of allCakes">
+  <div>{{cake?.name}}{{cake?.url}}{{cake?.rating}}{{cake?.comments}}
+    <button (click)='rateCakeById(cake?._id)'>Get Cakes!</button>
+    <button (click)='deleteCake(cake?._id)'>Delete Cake!</button>
+  </div>
+</div>
+

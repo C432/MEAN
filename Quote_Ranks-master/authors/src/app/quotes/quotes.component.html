@@ -1,0 +1,27 @@
+<h1>Quotes by {{ name }}</h1>
+
+<a class="btn btn-outline-primary" [routerLink]="['/home']">Home</a>
+<a class="btn btn-outline-success" [routerLink]="['/write',id]">Add a quote</a>
+  
+<table class="table">
+    <thead>
+      <tr>
+        <th>Quote</th>
+        <th>Votes</th>
+        <th>Actions available</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let quote of quotes">
+        <td>{{ quote.quote }}</td>
+        <td>{{ quote.votes }}</td>
+        <td>
+          <div *ngIf="quote" class="btn-group pull-right btn-group-justified" role="group">
+            <button type="button" class="btn btn-success" (click)="voteQuote(quote._id,1)">Vote up</button>
+            <button type="button" class="btn btn-warning" (click)="voteQuote(quote._id,-1)">Vote down</button>
+            <button type="button" class="btn btn-danger" (click)="deleteQuote(quote._id)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>

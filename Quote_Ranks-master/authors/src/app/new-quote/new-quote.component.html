@@ -1,0 +1,12 @@
+<p>Provide a quote by {{ name }}:</p>
+<div class="container alert-primary" *ngIf="name">
+  <form class="form-group">
+    <label class="form-label" for="quote">Quote: </label>
+    <input class="form-control col-xs-8" id="quote" name="quote" type="text" [(ngModel)]="quote">
+    <div class="btn-group pull-right btn-group-justified" role="group">
+      <button type="button" class="btn btn-primary" [routerLink]="['/quotes',id]">Cancel</button>
+      <button type="button" class="btn btn-success" (click)="addQuote()">Submit</button>    
+    </div>
+  </form>
+</div>
+<div *ngIf="errors" class="text-danger"><p *ngFor="let error of errors">{{error}}</p></div>
